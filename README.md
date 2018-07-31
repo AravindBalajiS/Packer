@@ -1,9 +1,9 @@
 # Packer Builder for VMware vSphere
 
-This Project helps in creating a VMware VM template for centos7 using packer.
-Packer is an open source tool for creating identical machine images for multiple platforms from a single source configuration. More details can be found [packer.io](https://www.packer.io/intro)
+This Project helps in creating a VMware VM template for centos7 using Packer.
+Packer is an open source tool for creating identical machine images for multiple platforms from a single source configuration. More details can be found in [packer.io](https://www.packer.io/intro)
 
-## Installation(Packer)
+## Packer Installation
  For installing packer in your machine do the following steps:
 *   `sudo wget https://releases.hashicorp.com/packer/0.12.0/packer_0.12.0_linux_amd64.zip`
 *   `sudo unzip packer_0.12.0_linux_amd64.zip -d packer`
