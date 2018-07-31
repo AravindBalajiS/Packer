@@ -1,12 +1,11 @@
 # Packer Builder for VMware vSphere
 
-This a plugin for [HashiCorp Packer](https://www.packer.io/). It uses native vSphere API, and creates virtual machines remotely.
-
 `vsphere-iso` builder creates new VMs from scratch.
 
 
 ## Installation(Packer)
  For installing packer in your machine do the following steps:
+*  `cd /opt/`
 *  `wget https://releases.hashicorp.com/packer/0.12.0/packer_0.12.0_linux_amd64.zip`
 *   `unzip packer_0.12.0_linux_amd64.zip -d packer`
 *   `sudo mv packer /usr/local/`
@@ -16,9 +15,19 @@ This a plugin for [HashiCorp Packer](https://www.packer.io/). It uses native vSp
 *   Packer is now installed
 *   To check packer is installed, type `packer`and you will see the following output.(https://la-community-cdn.linuxacademy.com/img/user_55169_58566dd805b74.png)
 
-## Installation(Plugins)
-* Download binaries from the [releases page](https://github.com/).
-* [Install](https://www.packer.io/docs/extending/plugins.html#installing-plugins) the plugins, or simply put them into the same directory with JSON templates. On Linux and macOS run `chmod +x` on the files.
+## Create the centos7 template
+
+### Use the following steps to create centos7 template using Packer
+
+* Clone the Centos7 [repository](https://github.com/abalaji23/Packer.git) in /opt/
+* `cd /opt/Packer/Centos7/`
+* `sudo chmod +x packer-builder-vsphere-iso.linux`
+*  Enter the network information in ks.cfg file.
+*  Upload the ks.cfg in a private repository where it is accessible and give the url as a value in Centos7.json(boot_command).
+*  Fill all the fields in Centos7.json file with the help of Parameter Reference given down.
+* Execute the following command where your Centos7.json file is located
+`packer build Centos7.json`
+
 
 ## Parameter Reference
 
@@ -34,7 +43,7 @@ This a plugin for [HashiCorp Packer](https://www.packer.io/). It uses native vSp
 
 * `vm_name`(string) - Name of the new VM to create.
 * `folder`(string) - VM folder to create the VM in.
-* `host`(string) - ESXi host where target VM is created. A full path must be specified if the host is in a folder. For example `folder/host`. See the `Specifying Clusters and Hosts` section above for more details.
+* `host`(string) - ESXi host where target VM is created.
 
 ### Hardware
 
@@ -59,15 +68,3 @@ This a plugin for [HashiCorp Packer](https://www.packer.io/). It uses native vSp
 
 * `ssh_username`(string) - Username in guest OS.
 * `ssh_password`(string) - Password to access guest OS.
-
-
-## User Input (Vmware credentials)
-
-*  Enter the network information in ks.cfg file.
-*  Upload the ks.cfg in a private repository where it is accessible and give the url as a value in Centos7.json(boot_command).
-*  Fill all the fields in Centos7.json file.
-
-## Create the centos7 template
-
-* Execute the following command where your Centos7.json file is located
-`packer build Centos7.json`
