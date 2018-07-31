@@ -1,0 +1,41 @@
+{
+  "builders": [
+    {
+      "type": "vsphere-iso",
+       "boot_command": [
+        "<up><wait><tab><wait> text ks=Eneter the url <enter><wait>"
+      ],
+      "vcenter_server": "",
+      "insecure_connection": "",
+      "username": "",
+      "password": "",
+      "cluster": "",
+      "resource_pool": "",
+      "host": "",
+
+      "vm_name":  "",
+      "convert_to_template": "",
+      "folder": "",
+      "ssh_username": "",
+      "ssh_password": "",
+      "CPUs": "",
+      "CPU_limit": -1,
+      "ram": "",
+      "network": "",
+      "network_card": "vmxnet3",
+      "guest_os_type": "",
+      "datastore": "",
+      "disk_size": ,
+      "iso_paths": "",
+      "boot_order": "disk"
+}],
+
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": ["ls /"]
+    }
+]
+
+}
+
