@@ -6,8 +6,8 @@
 ## Installation(Packer)
  For installing packer in your machine do the following steps:
 *  `cd /opt/`
-*  `wget https://releases.hashicorp.com/packer/0.12.0/packer_0.12.0_linux_amd64.zip`
-*   `unzip packer_0.12.0_linux_amd64.zip -d packer`
+*  `sudo wget https://releases.hashicorp.com/packer/0.12.0/packer_0.12.0_linux_amd64.zip`
+*   `sudo unzip packer_0.12.0_linux_amd64.zip -d packer`
 *   `sudo mv packer /usr/local/`
 *   `sudo gedit /etc/environment` and paste the following line at the end of the file
     `export PATH="$PATH:/usr/local/packer"` and save it.
