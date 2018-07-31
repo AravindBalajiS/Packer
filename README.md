@@ -1,7 +1,7 @@
 # Packer Builder for VMware vSphere
 
-This Project helps in creating a Vmware VM template for centos7 using packer.
-Packer is an open source tool for creating indentical machine images for multiple platforms from a single source configuration. More details can be found [packer.io](https://www.packer.io/intro)
+This Project helps in creating a VMware VM template for centos7 using packer.
+Packer is an open source tool for creating identical machine images for multiple platforms from a single source configuration. More details can be found [packer.io](https://www.packer.io/intro)
 
 ## Installation(Packer)
  For installing packer in your machine do the following steps:
@@ -31,16 +31,17 @@ Packer is an open source tool for creating indentical machine images for multipl
 
 ### Use the following steps to create centos7 template using Packer
 
-* Clone this [repository](https://github.com/abalaji23/Packer.git) in the machine from which the template is to be build and that has access to the ESXi Server.
+* Clone this [repository](https://github.com/abalaji23/Packer.git) in the machine from which the template is to build and that has access to the ESXi Server.
 * `git clone https://github.com/abalaji23/Packer.git`
 * `cd Packer/Centos7/`
 * `chmod +x packer-builder-vsphere-iso.linux`
 *  Enter the network information in ks.cfg file.
-*  Upload the ks.cfg in a private repository where it is accessible for the VMs inside the Esxi server and give the url as a value in Centos7.json(boot_command).
+*  Upload the ks.cfg in a private repository where it is accessible for the VMs inside the ESXi server and give the URL as a value in Centos7.json(boot_command).
 *  Fill all the fields in Centos7.json file with the help of Parameter Reference given below.
 * Execute the following command where your Centos7.json file is located
   ```
-  packer build Centos7.json```
+  packer build Centos7.json
+  ```
 
 
 ## Parameter Reference
@@ -75,7 +76,7 @@ Packer is an open source tool for creating indentical machine images for multipl
 
 ### Boot
 
-* `boot_command`(array of strings) - List of commands to type when the VM is first booted. Used to initalize the operating system installer.
+* `boot_command`(array of strings) - List of commands to type when the VM is first booted. Used to initialize the operating system installer.
 * `iso_paths`(array of strings) - List of data store paths to ISO files that will be mounted to the VM. Example `"[datastore1] ISO/ubuntu-16.04.3-server-amd64.iso"`.
 
 ### Provision
