@@ -1,32 +1,46 @@
 # Packer Builder for VMware vSphere
 
-`vsphere-iso` builder creates new VMs from scratch.
-
+This Project helps in creating a Vmware VM template for centos7 using packer.
+Packer is an open source tool for creating indentical machine images for multiple platforms from a single source configuration. More details can be found [packer.io](https://www.packer.io/intro)
 
 ## Installation(Packer)
  For installing packer in your machine do the following steps:
-*  `cd /opt/`
-*  `sudo wget https://releases.hashicorp.com/packer/0.12.0/packer_0.12.0_linux_amd64.zip`
+*   `sudo wget https://releases.hashicorp.com/packer/0.12.0/packer_0.12.0_linux_amd64.zip`
 *   `sudo unzip packer_0.12.0_linux_amd64.zip -d packer`
 *   `sudo mv packer /usr/local/`
 *   `sudo gedit /etc/environment` and paste the following line at the end of the file
     `export PATH="$PATH:/usr/local/packer"` and save it.
 *   `source /etc/environment`
 *   Packer is now installed
-*   To check packer is installed, type `packer`and you will see the following output.(https://la-community-cdn.linuxacademy.com/img/user_55169_58566dd805b74.png)
+*   To check packer is installed, type `packer`and you will see the following output.
+
+  ```
+    usage: packer [--version] [--help] <command> [<args>]
+
+    Available commands are:
+    build       build image(s) from template
+    fix         fixes templates from old versions of packer
+    inspect     see components of a template
+    push        push a template and supporting files to a Packer build service
+    validate    check that a template is valid
+    version     Prints the Packer version
+  ```
+
 
 ## Create the centos7 template
 
 ### Use the following steps to create centos7 template using Packer
 
-* Clone the Centos7 [repository](https://github.com/abalaji23/Packer.git) in /opt/
-* `cd /opt/Packer/Centos7/`
-* `sudo chmod +x packer-builder-vsphere-iso.linux`
+* Clone this [repository](https://github.com/abalaji23/Packer.git) in the machine from which the template is to be build and that has access to the ESXi Server.
+* `git clone https://github.com/abalaji23/Packer.git`
+* `cd Packer/Centos7/`
+* `chmod +x packer-builder-vsphere-iso.linux`
 *  Enter the network information in ks.cfg file.
-*  Upload the ks.cfg in a private repository where it is accessible and give the url as a value in Centos7.json(boot_command).
-*  Fill all the fields in Centos7.json file with the help of Parameter Reference given down.
+*  Upload the ks.cfg in a private repository where it is accessible for the VMs inside the Esxi server and give the url as a value in Centos7.json(boot_command).
+*  Fill all the fields in Centos7.json file with the help of Parameter Reference given below.
 * Execute the following command where your Centos7.json file is located
-`packer build Centos7.json`
+  ```
+  packer build Centos7.json```
 
 
 ## Parameter Reference
