@@ -5,10 +5,10 @@ Packer is an open source tool for creating identical machine images for multiple
 
 ## Packer Installation
  For installing packer in your machine do the following steps:
-*   `sudo wget https://releases.hashicorp.com/packer/0.12.0/packer_0.12.0_linux_amd64.zip`
-*   `sudo unzip packer_0.12.0_linux_amd64.zip -d packer`
-*   `sudo mv packer /usr/local/`
-*   `sudo gedit /etc/environment` and paste the following line at the end of the file
+*   `wget https://releases.hashicorp.com/packer/0.12.0/packer_0.12.0_linux_amd64.zip`
+*   `unzip packer_0.12.0_linux_amd64.zip -d packer`
+*   `mv packer /usr/local/`
+*   `gedit /etc/environment` and paste the following line at the end of the file
     `export PATH="$PATH:/usr/local/packer"` and save it.
 *   `source /etc/environment`
 *   Packer is now installed
@@ -25,6 +25,14 @@ Packer is an open source tool for creating identical machine images for multiple
     validate    check that a template is valid
     version     Prints the Packer version
   ```
+
+## Packer-builder-vsphere-iso plugin
+Packer Plugins allow new functionality to be added to Packer without modifying the core source code. Packer plugins are able to add new builders, provisioners, hooks, and more.
+
+Follow the below steps to download the packer builder plugin for vsphere.
+
+* `wget https://github.com/jetbrains-infra/packer-builder-vsphere/releases/download/v2.0/packer-builder-vsphere-iso.linux `
+* `mv packer-builder-vsphere-iso.linux /usr/local/packer`
 
 
 ## Create the centos7 template
