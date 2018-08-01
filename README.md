@@ -32,8 +32,9 @@ Packer Plugins allow new functionality to be added to Packer without modifying t
 Follow the below steps to download the packer builder plugin for vsphere.
 
 * `wget https://github.com/jetbrains-infra/packer-builder-vsphere/releases/download/v2.0/packer-builder-vsphere-iso.linux `
-* `mv packer-builder-vsphere-iso.linux /usr/local/packer`
-
+* `mv packer-builder-vsphere-iso.linux /usr/local/packer/`
+* `cd /usr/local/packer/`
+* `chmod +x packer-builder-vsphere-iso.linux` 
 
 ## Create the centos7 template
 
@@ -42,7 +43,6 @@ Follow the below steps to download the packer builder plugin for vsphere.
 * Clone this [repository](https://github.com/abalaji23/Packer.git) in the machine from which the template is to build and that has access to the ESXi Server.
 * `git clone https://github.com/abalaji23/Packer.git`
 * `cd Packer/Centos7/`
-* `chmod +x packer-builder-vsphere-iso.linux`
 *  Enter the network information in ks.cfg file.
 *  Upload the ks.cfg in a private repository where it is accessible for the VMs inside the ESXi server and give the URL as a value in Centos7.json(boot_command).
 *  Fill all the fields in Centos7.json file with the help of Parameter Reference given below.
